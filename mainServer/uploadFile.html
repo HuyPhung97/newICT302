@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <title> Murdoch University </title>
+    <link rel="icon" href="image/logo.png"/>
+    <link rel="stylesheet" href="css/uploadFile.css" />
+    <script> 
+        var checkUpload = "<%= check %>";
+
+        if(checkUpload == "1")
+        {
+            alert("You have created form successful");
+        }
+        else if( checkUpload == "0")
+        {
+            alert("There is something went wrong");
+        }
+        
+        function check()
+        {
+            var id = document.getElementById('id').value;
+            var title = document.getElementById('title').value;
+            var file = document.getElementById('file').value;
+
+            if( id == "" || title =="" || file =="" )
+            {
+                alert("Please fill up the form");
+                return false;
+            }
+            else 
+            {
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="title">
+        <div class="imgIcon">
+            <a href="/"><img src="image/logo.svg"> </a>
+        </div>
+        <div class="titleWord">
+            <a href="/student">STUDENT </a>
+            <a href="/UC">UC </a>
+            <a href="/ABOUT%20US">ABOUT US </a>
+        </div>
+    </div>
+   
+    <div class="mainBackground">
+        <div class="theLeftBackground">
+            <div class="theOption">
+                <div id="option"> <a href="/upload"> Upload File </a>  </div>
+            </div>
+        </div>
+        <div class="theRightBackground"> 
+            <h1> Upload file </h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data" onSubmit=" return check()">
+            <div class="containerUpload">
+                <div class="titleUpload">
+                  <label> IDNumber  : </label>
+                </div>
+                <div class="inputUpload">
+                  <input type="text" id="id" name="id" placeholder="Your ID number.." required >
+                </div>
+            </div>
+            <div class="containerUpload">
+                <div class="titleUpload">
+                  <label> Title   : </label>
+                </div>
+                <div class="inputUpload">
+                  <input type="text" id="title" name="title" placeholder="Any title.." required >
+                </div>
+            </div>
+            <div class="containerUpload">
+                <div class="inputUploadFile">
+                  <input type="file" id="file" name="file" >
+                </div>
+            </div>
+            <div class="containerUpload1">
+                <input type="submit" id="test" value="Upload file">
+            </div>
+        </form> 
+        </div>
+    </div>
+</body>
+</html>
+
+

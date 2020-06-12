@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title> Murdoch University </title>
+    <link rel="stylesheet" href="css/displayForm.css" />
+    <link rel="icon" href="image/logo.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script> 
+         function displayForm()
+         {
+           // var title  = titleString.split(',');
+           
+        var table = document.getElementById('demo');
+        var otherTd = ` <tr> <td> <input type="text" name ="asdsad"  >  <button type="submit" >  See details  </button> </td> </tr>`;
+        
+         table.insertAdjacentHTML("afterend" , otherTd);
+         }
+        
+         window.onload = function()
+         {
+            displayForm();
+         }
+
+    </script> 
+</head>
+
+<body>
+    <div class="title">
+        <div class="imgIcon">
+            <a href="/"><img src="image/logo.svg"> </a>
+        </div>
+        <div class="titleWord">
+            <a href="/student">STUDENT </a>
+            <a href="/UC">UC </a>
+            <a href="/ABOUT%20US">ABOUT US </a>
+        </div>
+    </div>
+   
+    <div class="mainBackground">
+        <div class="theLeftBackground">
+            <div class="theOption">
+                <div id="option"> <a href="/upload"> Upload File </a>  </div>
+                <div id="linkToForm"> <a href="/form%20created"> Form have created </a> </div>
+            </div>        
+        </div>
+        <div class="theRightBackground">
+            <p> Form created </p>
+            <div id="containForm">
+                <div class="dataForm">
+                    <table id="dataForm">
+                        <tr> 
+                            <th> Title </th>
+                            <th> Date created </th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="optionForForm">
+                    <form action="/formcreated" method="POST" >
+                            <table  id="demo">
+
+                            </table>
+                     </form>
+                </div>
+
+               
+            </div>
+        </div>
+    </div>
+
+
+       
+
+</body>
+
+</html>

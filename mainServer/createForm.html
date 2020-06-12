@@ -1,0 +1,199 @@
+<html>
+<head>
+    <title> Murdoch University </title>
+    <link rel="icon" href="image/logo.png"/>
+    <link rel="stylesheet" href="css/createForm.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/createForm.js"></script>
+    <script> 
+     window.onload = function()
+    {
+        datetime();  
+        addSelect();
+    }
+
+    var unitCode = "<%= unitCode %>";
+    var teamID = "<%= teamID %>";
+    var teachPer = "<%= teachPer %>";
+
+    function filterData(dataDup)
+    {
+        var data = dataDup.filter((value , index) => dataDup.indexOf(value) === index);
+        return data;
+    }
+
+    function converToArray(dataString)
+    {
+        var data=[];
+        for(var i = 0 ; i < dataString.split(",").length -1 ; i++)
+        {
+           data.push(dataString.split(",")[i]);
+        }
+       return data;
+    }
+
+    function addOption(id , data)
+    {
+	    for( var i = 0 ; i < data.length ; i++)
+		{   
+            id.options[id.options.length] = new Option(data[i], data[i]);
+		}
+    
+    }
+
+    function addSelect()
+    {
+        //console.log(unitCode);
+         var arrayUnit = converToArray(unitCode);
+         var arrayTeam = converToArray(teamID);
+         var arrayTeach = converToArray(teachPer);
+
+         var filterUnit = filterData(arrayUnit);
+         var filterteam = filterData(arrayTeam);
+         var filterteach = filterData(arrayTeach);
+
+         var unit = document.getElementById('unitCode');
+         var team = document.getElementById('teamID');
+         var teach = document.getElementById('teachPer');
+         
+        addOption(unit , filterUnit);
+        addOption(team , filterteam);
+        addOption(teach , filterteach);
+
+    }
+
+
+    function datetime()
+    {
+        var d = new Date();
+        var month = d.getMonth() + 1;
+        var date = d.getDate();
+        if(month < 10)
+        {
+            month = "0" + month;
+        }
+        if(date < 10)
+        {
+            date = "0" + date;
+        }
+        current =  d.getFullYear()+"-"+ month +"-" + date;
+        document.getElementById('submitDay').min = current;
+    }
+    </script>
+</head>
+<body>
+    <div class="title">
+        <div class="imgIcon">
+            <a href="/"><img src="image/logo.svg"> </a>
+        </div>
+        <div class="titleWord">
+            <a href="/student">STUDENT </a>
+            <a href="/UC">UC </a>
+            <a href="/ABOUT%20US">ABOUT US </a>
+        </div>
+    </div>
+   
+    <div class="mainBackground">
+        <div id="theLeftBackground">
+            <div class="theOption">
+                <div id="option"> <a href="/upload"> Upload File </a>  </div>
+            </div>
+        </div>
+        <div id="theRightBackground"> 
+            <div class="mainTitle">
+                <label> Create Form </label>
+            </div>  
+            <div class="containerForm">
+                <div class="containerInfor">
+                    <form id="surveyForm" onsubmit="return checkQuestion()" action="/createForm" method="POST"> 
+                        <!-- Infor of creater -->
+                    <div class="containBase">
+                        <div class="labTitle">
+                            <div id="rowLeft">
+                                <label> ID number </label>
+                            </div>
+                            <div id="rowRight">
+                                 <input type="text" name="idNumber" placeholder="Enter your ID number..." required />
+                            </div>
+                        </div>
+                        <div class="labTitle">
+                            <div id="rowLeft">
+                                <label> Name   </label>
+                            </div>
+                            <div id="rowRight">
+                                 <input type="text" name="nameCreater" placeholder="Enter your name..." required />
+                            </div>
+                        </div>
+                        <div class="labTitle">
+                            <div id="rowLeft">
+                                <label> Email   </label>
+                            </div>
+                            <div id="rowRight">
+                                 <input type="email" name="email" placeholder="Enter your email..." required />
+                            </div>
+                        </div>
+                    </div>
+                        <!-- end infor of creater -->
+                        <!-- title of form  -->
+                    <div class="containBase">
+                        <div class="containTitle">
+                            <div id="title">
+                                 <input type="text" name="title" placeholder="Untitle form .. " />
+                            </div> 
+                            
+                        </div>
+                        <div class="idCode">
+                            <div class="unitCode">
+                                <select id="unitCode" name="unitCode" >
+                                    <option> Unit Code </option>   
+                                </select>
+                            </div>
+                            <br>
+                            <div class="teamID">
+                                <select id="teamID" name="teamID" >
+                                    <option> team ID </option>   
+                                </select>
+                            </div><br>
+                            <div class="teachPer">
+                                <select id="teachPer" name="teachPer">
+                                    <option> Teach Period</option>       
+                                </select>
+                            </div>
+                        </div>
+                        <div class="containDes">
+                            <div id="describle">
+                                <input type="date" id="submitDay" name="deadline" >
+                           </div>
+                        </div>
+                    </div>
+                    <!--Question -->
+                    <div class="containBase1">
+                        <div id="containQuestion">
+
+                        </div>
+                    </div>
+                    <!-- end of question -->
+                </div>
+            </div>  
+            
+            <div class="handleButton">
+                <div class="button">
+                    <div id="resetButton"> 
+                        <button type="button" onclick="reset123()"> Reset </button>
+                     </div>
+                     <div id="createButton"> 
+                        <button type="button" onclick="createNewQuestion()">Add New </button> 
+                     </div>
+                     <div id="submitButton"> 
+                        <button type="submit">Submit </button> 
+                     </div>
+                </div>
+            </div>
+        </div>
+       
+               
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+  }
+.title
+{
+    position: sticky;
+	top : 0px;
+    width : 100%;   
+    background-color: #333333;
+}
+.imgIcon img
+{
+    float : left;
+    width : 15%;
+    height: 9.8%;
+
+}
+
+.imgIcon img:hover
+{
+    background-color: red;
+}
+
+.titleWord
+{
+    float : left;
+    width : 85%;
+    height : auto;
+}
+.titleWord a
+{
+   float : left;
+   border-left :1px solid white;
+   padding : 2.1% 0 ;
+   width : 10%;;
+   padding-left:2%;
+   padding-right : 2%;
+   text-align: center;
+   color : #a6a6a6;
+   text-decoration: none;
+}
+
+.titleWord a:hover
+{
+    background-color: #ff1a1a;
+	color: white;
+}
+.title::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.mainBackground
+{
+    background-color: #e6e6e6;
+    height : 100%;
+    width : 100%;
+}
+.theLeftBackground
+{
+    float : left;
+    width : 12%;
+    height: 100%;
+    border-right: 2px solid  #404040;
+}
+
+.theOption
+{
+    font-size : 20px;
+    position: sticky;
+    top : 80px;
+}
+
+.theOption a
+{
+    color : #1a1a1a;
+    text-decoration: none;
+}
+
+.theOption a:hover
+{
+    color : #ff1a1a;
+}
+
+#option
+{
+    text-align: center;
+    padding-top: 6%;
+    padding-bottom: 4%;
+    font-style:italic;
+}
+
+#linkToForm
+{
+    text-align: center;
+    padding-top : 5%;
+    font-style:italic;
+}
+
+.theRightBackground
+{
+    width : 88%;
+    float : left;
+}
+
+.theRightBackground p
+{
+    text-align: center;
+    font-size: 50px;
+    margin-top : 1%;
+    font-style: italic;
+}
+
+#containForm
+{
+    border-radius: 5px;
+    width : 90%;
+    display : block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dataForm 
+{
+    float: left;
+    width: 80%;
+}
+
+.dataForm table
+{
+    width : 100%;
+  
+}
+
+.dataForm table,  tr , th  ,td
+{
+    border-collapse: collapse;
+    text-align: center;
+    border : 1px solid black;
+    background-color: white;
+    padding-top: 0.5%;
+    padding-left: 1%;
+}
+
+.dataForm td
+{
+    padding-top: 0.5%;
+    padding-bottom: 1%;
+}
+
+.optionForForm
+{
+    float: left;
+    width: 20%;
+}
+
+.optionForForm table
+{
+    margin-left : 5%;
+    width : 100%;
+}
+
+
+.optionForForm th 
+{
+    border-collapse: collapse;
+    text-align: center;
+    border : none;
+}
+
+.optionForForm th
+{
+    
+    background-color: #e6e6e6;
+}
+
+.optionForForm td
+{
+
+  
+    background-color: #e6e6e6;
+}
+
+.optionForForm button
+{
+    background-color: #80ff80;
+    border-radius: 2px;
+    margin-right: 10%;
+}
+
+.optionForForm button:hover
+{
+    background-color: #ff4d4d;
+}
+
+
+
+
+
+
+
